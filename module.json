@@ -27,6 +27,6 @@
     "restyler.css"
   ],
   "url": "https://github.com/DARKNEET69/cyberpunk-restyler",
-  "manifest": "https://raw.githubusercontent.com/DARKNEET69/cyberpunk-restyler/main/module.json",
+  "manifest": "https://raw.githubusercontent.com/DARKNEET69/cyberpunk-restyler/refs/heads/main/module.json",
   "download": "https://github.com/DARKNEET69/cyberpunk-restyler/archive/refs/heads/main.zip"
 }
