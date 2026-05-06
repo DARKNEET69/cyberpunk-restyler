@@ -1,17 +1,15 @@
 :root {
   --background: rgba(11, 10, 19, 1);
-  --restyler-dim: #7a7a7a;
-  --restyler-text: #cccccc;
-  --terminal-error: #cc0000;
   --restyler-border: #555555;
   --restyler-text-shadow: 0 0 1px var(--color-highlights);
+  --color-scheme: dark !important;
 }
 
 .dialog, .window-app, .dialog *:not(.item-image), .dialog .window-frame, .window-app .window-frame, .dialog .window-header, .window-app .window-header, .dialog .window-content, .window-app .window-content, .dialog .window-resizable-handle, .window-app .window-resizable-handle {
   background-color: var(--background) !important;
   background: var(--background) !important;
   background-image: none !important;
-  color: var(--restyler-text) !important;
+  color: var(--color-light-1) !important;
 }
 
 .window-app {
@@ -33,17 +31,17 @@
 .cyberpunk {
   section.window-content {
     background-color: var(--background) !important;
-    color: var(--restyler-text);
+    color: var(--color-light-1);
     font-weight: normal;
     overflow-y: scroll;
     position: relative;
   }
   .flavor {
-    color: var(--restyler-dim);
+    color: var(--color-form-label);
   }
   .editor-content {
     background-color: var(--background);
-    color: var(--restyler-text);
+    color: var(--color-light-1);
     border: 1px solid var(--restyler-border);
     padding: 8px;
     text-shadow: var(--restyler-text-shadow);
@@ -97,7 +95,7 @@
   h1.title>input {
     background-color: transparent;
     border: none;
-    color: var(--restyler-text);
+    color: var(--color-light-1);
     font-weight: bold;
     text-shadow: var(--restyler-text-shadow);
   }
@@ -109,12 +107,13 @@
   }
   .field {
     border: unset;
+    background-color: unset;
   }
   label {
     min-width: unset;
   }
   button[type=submit]{
-    color: var(--restyler-text);
+    color: var(--color-light-1);
     background-color: var(--color-highlights-75);
   }
   button[type=submit]:focus {
@@ -142,57 +141,14 @@
 		border-width: 0px 2px 2px 2px;
     width: clamp(70px, 19%, 140px);
 	}
-	.wound-state-label {
-		background-color: var(--background);
-		color: var(--restyler-text);
-		font-size: smaller;
-		font-variant: small-caps;
-		padding: 2px;
-		padding-left: 2px;
-	}		
-	.damageholder {
-		flex-grow: 1;
-		height: 0.5em;
+	.damage.unfilled {
+  		background-color: var(--color-form-label);
 	}
-	.damage {
-		position: relative;
-		height: 100%;
-		width: 1.3em;
-		flex-grow: 1;
-		border-style: solid;
-		border-width: 0px 1px 0px 1px;
-		border-color: var(--restyler-border);
-		border-radius: 0;
-		margin: 0;
-		padding: 0;
-		cursor: pointer;
-		font: inherit;
+  .damage.filled {
+  		background-color: var(--color-highlights);
 	}
-  .damage::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-color: transparent;
-    z-index: 1;
-    pointer-events: none;
-  }
-	.damage.unfilled::before {
-  		background-color: transparent;
-	}
-	.damage:hover::before {
-  		background-color: rgba(204, 0, 0, 0.5);
-	}
-	.damage+.damage {
-  		border-left-width: 0px;
-	}	
-	.damage.leftmost {
-  		border-left-width: 0px;
-	}
-	.damage.rightmost {
-  		border-right-width: 0px;
-	}
-	.damage:checked {
- 		filter: none;
+	.damage:hover {
+  		background-color: var(--color-highlights-50);
 	}
 }
 
@@ -236,11 +192,12 @@
 }
 
 .cyberpunk .field > *, .cyberpunk .field > span > * {
-  background-color: unset !important;
+  background-color: unset;
 }
 
 .statsrow > div.stat, .cyberpunk .armor-display .armor-segment {
   border: 1px solid var(--color-highlights-50);
+  min-width: 55px;
 }
 
 .statsrow > div.stat label {
@@ -248,7 +205,7 @@
 }
 
 .statsrow > div.stat .flexrow input, .statsrow > div.stat .flexrow .stat-mod {
-  color: var(--restyler-dim) !important;
+  color: var(--color-text-subtle) !important;
 }
 
 .cyberpunk .armor-display .armor-segment {
@@ -268,8 +225,7 @@
   padding: 3px;
 }
 
-
-.field.skill, .field.action, .field.gear, .field.item-edit {
+.field.skill, .field.action, .field.gear, .field.item-edit, .field.netrun-program {
   background-color: unset;
   border-bottom: 1px solid var(--color-highlights-50);
 }
@@ -278,6 +234,37 @@
   object-fit: contain;
 }
 
-.statsrow > div.stat .stat-base, .statsrow > div.stat .stat-mod, .statsrow > div.stat .stat-temp {
-    background: unset;
+.statsrow > div.stat .stat-base, .statsrow > div.stat .stat-mod, .statsrow > div.stat .stat-temp, .netrun-options-row {
+  background: unset;
+  border: unset;
+}
+
+input[type=checkbox]:checked, input[type=radio]:checked {
+  accent-color: var(--color-highlights);
+  color: var(--color-light-1);
+}
+
+.item-controls {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.fa-edit:hover, .fa-trash:hover {
+  color: var(--color-highlights);
+}
+
+.cyberpunk select, .cyberpunk button, select option {
+  background: var(--color-warm-3) !important;
+  border: 1px solid var(--color-highlights-50) !important;
+  border-radius: 4px;
+  color: var(--color-light-1) !important;
+}
+
+.cyberpunk .deck-option {
+  color: unset;
+}
+
+.cyberpunk .netrun-cell input {
+  color: var(--color-light-1);
 }
