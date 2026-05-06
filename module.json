@@ -1,7 +1,7 @@
 {
   "id": "cyberpunk-restyler",
   "title": "Cyberpunk Restyler",
-  "description": "Restyling for the Cyberpunk 2020 system at Foundry VTT",
+  "description": "Cyberpunk Restyler is a module that redesigns the UI for the Cyberpunk 2020 system on Foundry VTT",
   "version": "0.0.1",
   "compatibility": {
     "minimum": "12",
