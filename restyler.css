@@ -1,0 +1,283 @@
+:root {
+  --background: rgba(11, 10, 19, 1);
+  --restyler-dim: #7a7a7a;
+  --restyler-text: #cccccc;
+  --terminal-error: #cc0000;
+  --restyler-border: #555555;
+  --restyler-text-shadow: 0 0 1px var(--color-highlights);
+}
+
+.dialog, .window-app, .dialog *:not(.item-image), .dialog .window-frame, .window-app .window-frame, .dialog .window-header, .window-app .window-header, .dialog .window-content, .window-app .window-content, .dialog .window-resizable-handle, .window-app .window-resizable-handle {
+  background-color: var(--background) !important;
+  background: var(--background) !important;
+  background-image: none !important;
+  color: var(--restyler-text) !important;
+}
+
+.window-app {
+  border: 1px solid var(--restyler-border);
+  border-radius: 6px;
+  box-shadow: 0 0 10px #000;
+}
+
+.dialog .dialog-buttons, .window-app .dialog-buttons {
+  background-color: var(--background) !important;
+  border-top: 1px solid var(--restyler-border) !important;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.cyberpunk {
+  section.window-content {
+    background-color: var(--background) !important;
+    color: var(--restyler-text);
+    font-weight: normal;
+    overflow-y: scroll;
+    position: relative;
+  }
+  .flavor {
+    color: var(--restyler-dim);
+  }
+  .editor-content {
+    background-color: var(--background);
+    color: var(--restyler-text);
+    border: 1px solid var(--restyler-border);
+    padding: 8px;
+    text-shadow: var(--restyler-text-shadow);
+  }
+  .armor-display {
+    grid-template-areas:
+        "lArm Head rArm"
+        "lLeg Torso rLeg";
+  }
+  section.window-content {
+    nav.tabs {
+      border-bottom: 2px solid var(--restyler-border);
+      background-color: var(--background);
+      padding: 0;
+    }
+    nav.tabs>.item {
+      color: #cccccc;
+      white-space: nowrap;     
+    }
+    nav.tabs>.item.active {
+      background-color: var(--color-highlights-75);
+      border: 1px solid var(--color-highlights-75);
+      color: var(--color-text-light-0);
+    } 
+    nav.tabs>.item::before {
+      content: '[ ';
+    }
+    nav.tabs>.item::after {
+      content: ' ]';
+    }
+    nav.tabs>.item:hover {
+      background: var(--color-highlights-50);
+      border: 1px solid var(--color-highlights-50);
+      box-shadow: 0 0 8px inset var(--color-dark-bg-25);
+    }
+  }
+  h1.title, h2 {
+    color: var(--color-highlights);
+    text-shadow: var(--restyler-text-shadow);
+    border-bottom: 1px solid var(--restyler-border);
+    position: relative;
+    padding-left: 20px;
+  }
+  h1.title::before, h2::before {
+      content: '> ';
+      position: absolute;
+      left: 0;
+      color: var(--color-highlights);
+      animation: blink 2s infinite;
+  }
+  h1.title>input {
+    background-color: transparent;
+    border: none;
+    color: var(--restyler-text);
+    font-weight: bold;
+    text-shadow: var(--restyler-text-shadow);
+  }
+  .field > input {
+    color: #cccccc;
+  }
+  .field .stat {
+    border: 1px solid var(--restyler-border);
+  }
+  .field {
+    border: unset;
+  }
+  label {
+    min-width: unset;
+  }
+  button[type=submit]{
+    color: var(--restyler-text);
+    background-color: var(--color-highlights-75);
+  }
+  button[type=submit]:focus {
+    box-shadow: unset;
+  }
+  button[type=submit]:hover {
+    background: var(--color-highlights-50);
+    border: 1px solid var(--color-highlights-50);
+    box-shadow: 0 0 8px inset var(--color-dark-bg-25);
+  }
+}
+
+.wound-tracker {
+	display: flex;
+	flex-wrap: wrap;
+	flex-grow: 2;
+	margin-right: -3px;
+	.wound-state {
+		flex-grow: 1;
+		flex-direction: column;
+		height: fit-content;
+		margin-right: 3px;
+		margin-top: 5px;
+		border: solid var(--restyler-border);
+		border-width: 0px 2px 2px 2px;
+    width: clamp(70px, 19%, 140px);
+	}
+	.wound-state-label {
+		background-color: var(--background);
+		color: var(--restyler-text);
+		font-size: smaller;
+		font-variant: small-caps;
+		padding: 2px;
+		padding-left: 2px;
+	}		
+	.damageholder {
+		flex-grow: 1;
+		height: 0.5em;
+	}
+	.damage {
+		position: relative;
+		height: 100%;
+		width: 1.3em;
+		flex-grow: 1;
+		border-style: solid;
+		border-width: 0px 1px 0px 1px;
+		border-color: var(--restyler-border);
+		border-radius: 0;
+		margin: 0;
+		padding: 0;
+		cursor: pointer;
+		font: inherit;
+	}
+  .damage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: transparent;
+    z-index: 1;
+    pointer-events: none;
+  }
+	.damage.unfilled::before {
+  		background-color: transparent;
+	}
+	.damage:hover::before {
+  		background-color: rgba(204, 0, 0, 0.5);
+	}
+	.damage+.damage {
+  		border-left-width: 0px;
+	}	
+	.damage.leftmost {
+  		border-left-width: 0px;
+	}
+	.damage.rightmost {
+  		border-right-width: 0px;
+	}
+	.damage:checked {
+ 		filter: none;
+	}
+}
+
+.field.skill {
+  label.chip-toggle {
+    background-color: var(--background);
+    display: flex;
+    align-items: center;
+    padding-right: 3px;
+    position: relative;
+    cursor: pointer;
+    .chip-icon::before {
+      content: "";
+      display: block;
+      width: 1.5em;
+      height: 1.5em;
+      background-image: url(../img/chip.png);
+      background-size: cover;
+      background-position: center;
+      transition: opacity 0.2s ease-in-out;
+      opacity: 1;
+    }
+  }
+  label.chip-toggle>* {
+    font-variant: all-small-caps;
+  }
+  input[type=checkbox] {
+    display: none;
+  }
+  input[type=checkbox]:checked+.chip-icon::before {
+    opacity: 1;
+  }
+}
+
+.roll-image {
+    height: 32px;
+}
+
+.active-cyberware {
+ background-image: unset !important;
+}
+
+.cyberpunk .field > *, .cyberpunk .field > span > * {
+  background-color: unset !important;
+}
+
+.statsrow > div.stat, .cyberpunk .armor-display .armor-segment {
+  border: 1px solid var(--color-highlights-50);
+}
+
+.statsrow > div.stat label {
+  color: var(--color-highlights) !important;
+}
+
+.statsrow > div.stat .flexrow input, .statsrow > div.stat .flexrow .stat-mod {
+  color: var(--restyler-dim) !important;
+}
+
+.cyberpunk .armor-display .armor-segment {
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr auto;
+  grid-template-areas:
+    "name name loc"
+    "ablate sp repair"
+}
+
+.armor-display .armor-segment .segment-sp, .armor-display .armor-segment .segment-sdp-row, .armor-display .armor-segment .segment-name {
+  grid-column: unset !important;
+}
+
+.cyberpunk .armor-display .armor-segment .segment-name {
+  text-align: unset;
+  padding: 3px;
+}
+
+
+.field.skill, .field.action, .field.gear, .field.item-edit {
+  background-color: unset;
+  border-bottom: 1px solid var(--color-highlights-50);
+}
+
+.profile-img, .item-img {
+  object-fit: contain;
+}
+
+.statsrow > div.stat .stat-base, .statsrow > div.stat .stat-mod, .statsrow > div.stat .stat-temp {
+    background: unset;
+}

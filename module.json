@@ -1,0 +1,29 @@
+{
+  "id": "cyberpunk-restyler",
+  "title": "Cyberpunk Restyler",
+  "version": "0.0.1",
+  "compatibility": {
+    "minimum": "12",
+    "verified": "13"
+  },
+  "authors": [
+    {
+      "name": "DARKNEET",
+      "email": "darkneet69@gmail.com",
+      "discord": "DARKNEET"
+    }
+  ],
+  "relationships": {
+    "requires": [
+      {
+        "id": "crlngn-ui",
+        "type": "module",
+        "compatibility": {}
+      }
+    ]
+  },
+  "description": "",
+  "styles": [
+    "restyler.css"
+  ]
+}
