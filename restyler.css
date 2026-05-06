@@ -37,7 +37,7 @@
     position: relative;
   }
   .flavor {
-    color: var(--color-form-label);
+    color: var(--color-form-label) !important;
   }
   .editor-content {
     background-color: var(--background);
@@ -99,8 +99,10 @@
     font-weight: bold;
     text-shadow: var(--restyler-text-shadow);
   }
-  .field > input {
+  .field > input, .field-list .form-group input {
     color: #cccccc;
+    border: unset;
+    background-color: unset;
   }
   .field .stat {
     border: 1px solid var(--restyler-border);
@@ -109,8 +111,9 @@
     border: unset;
     background-color: unset;
   }
-  label {
-    min-width: unset;
+  label, .program-type {
+    align-self: center;
+    background-color: unset;
   }
   button[type=submit]{
     color: var(--color-light-1);
@@ -142,7 +145,7 @@
     width: clamp(70px, 19%, 140px);
 	}
 	.damage.unfilled {
-  		background-color: var(--color-form-label);
+  		background-color: var(--color-text-subtle);
 	}
   .damage.filled {
   		background-color: var(--color-highlights);
