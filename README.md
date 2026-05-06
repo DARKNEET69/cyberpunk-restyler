@@ -6,6 +6,6 @@
   <img width="49%" height="auto" src="https://github.com/user-attachments/assets/f4222982-b778-48d7-8dab-6437d6ff425f" />
 </div>
 
-This module updates the design of Cyberpunk 2020 interfaces using the theme settings from Carolingian UI.
+This module updates the design of Cyberpunk 2020 interfaces using the theme settings from Carolingian UI. You can add a module using the Manifest URL: https://raw.githubusercontent.com/DARKNEET69/cyberpunk-restyler/refs/heads/main/module.json
 
 PS: The inspiration was the Cyberpunk Starfinder Terminal Style module.
