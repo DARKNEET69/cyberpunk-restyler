@@ -47,6 +47,7 @@
     text-shadow: var(--restyler-text-shadow);
   }
   .armor-display {
+    max-width: unset;
     grid-template-areas:
         "lArm Head rArm"
         "lLeg Torso rLeg";
@@ -262,6 +263,10 @@ input[type=checkbox]:checked, input[type=radio]:checked {
   border: 1px solid var(--color-highlights-50) !important;
   border-radius: 4px;
   color: var(--color-light-1) !important;
+}
+
+.tinymce svg {
+  fill: var(--color-light-1) !important;
 }
 
 .cyberpunk .deck-option {
