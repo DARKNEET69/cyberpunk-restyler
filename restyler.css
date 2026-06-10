@@ -101,7 +101,7 @@
     text-shadow: var(--restyler-text-shadow);
   }
   .field > input, .field-list .form-group input {
-    color: #cccccc;
+    color: #cccccc !important;
     border: unset;
     background-color: unset;
   }
@@ -263,6 +263,10 @@ input[type=checkbox]:checked, input[type=radio]:checked {
   border: 1px solid var(--color-highlights-50) !important;
   border-radius: 4px;
   color: var(--color-light-1) !important;
+
+  &.active {
+    background: var(--color-warm-1) !important;
+  }
 }
 
 .tinymce svg {
